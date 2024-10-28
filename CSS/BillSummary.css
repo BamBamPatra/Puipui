@@ -1,0 +1,124 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(to right, rgba(221, 161, 94, 1) 0%, rgba(221, 161, 94, 1) 100%);
+    margin: 0;
+    padding: 0;
+}
+.Logo_img {
+    max-width: 80px;
+    margin: 10px;
+}
+.TopMenu {
+    display: flex;
+}
+.TopMenu a {
+    color: white;
+    text-decoration: none;
+}
+.TopMenu a:hover {
+    color: rgba(96, 108, 56);
+    text-decoration: none;
+}
+.dropdown-item[href] {
+    color: rgba(188, 108, 37);
+}
+h3 {
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-bottom: 10px;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto; /* Added some top and bottom margin */
+    background-color: whitesmoke;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.19); /* Enhanced shadow */
+}
+
+.header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.dropdown {
+    font-size: 24px;
+}
+
+.bill-table, .bill-footer {
+    background-color: whitesmoke;
+    border: 2px solid #000;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.15); /* Subtle inner shadow */
+}
+
+.bill-header, .bill-row, .bill-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.bill-id {
+    flex-basis: 70%;
+}
+
+.total-price {
+    flex-basis: 30%;
+    text-align: right;
+}
+
+.bill-footer .bill-summary {
+    font-weight: bold;
+}
+
+hr {
+    width: auto;
+    size: 5;
+    color: 770088;
+}
+
+/* Logo Image and Back Button */
+.Logo_img, .back_button {
+    width: 80px;
+    height: auto;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+/* Datepicker */
+.custom-datepicker {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 20px; /* Added to separate from content below */
+}
+
+.custom-datepicker label {
+    margin-bottom: 0;
+}
+
+.custom-datepicker input {
+    width: 100%; /* Adjusted for better visual integration */
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.custom-datepicker input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}

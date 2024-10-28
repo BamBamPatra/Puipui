@@ -1,0 +1,138 @@
+body {
+    background-color: #DDA15E;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Navbar */
+.navbar-brand img {
+    max-width: 80px;
+    margin: 10px;
+    border-radius: 50%;
+}
+.shopping-bag img {
+    max-width: 80px;
+    margin: 10px;
+}
+.navbar-nav .dropdown-toggle::after {
+    display: none;
+}
+.navbar {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    border: none;
+    background-color: transparent !important;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+.nav-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s; 
+}
+.nav-link:hover {
+    color: rgba(96, 108, 56); 
+}
+.custom-toggler {
+    padding: .25rem .5rem;
+    border-radius: 50%;
+    border: none;
+}
+.navbar-toggler img {
+    max-width: 80px;
+    margin: 10px;
+    border-radius: 50%;
+}
+.nav-item {
+    margin-left: 50px;
+    
+}
+/* Navbar */
+
+@media (max-width: 768px) {
+    .shopping-bag img {
+        max-width: 3em;
+        margin: 5px;
+    }
+    .navbar-toggler img {
+        max-width: 3em;
+        margin: 5px;
+        border-radius: 50%;
+    }
+    .navbar {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        border: none;
+        background-color: transparent !important;
+        position: absolute;
+        width: 100%;
+        z-index: 1000;
+    }
+}
+/* end navbar */
+
+/* header */
+.container-fluid {
+    padding: 0;
+}
+.col {
+    padding: 0px;
+}
+.img-fluid {
+    height: 700px;
+    width: 100%;
+    object-fit: cover;
+}
+/* end header */
+
+
+/* section */
+.container-xxl {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.container-xxl a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2em;
+    font-weight: 1000;
+
+}
+.card-body {
+    background-color: #DDA15E;
+}
+.border-top {
+    border-top: 3px solid white !important; /* ปรับความหนาและสีของเส้นด้านบน */
+}
+.border-bottom {
+    border-bottom: 3px solid white !important; /* ปรับความหนาและสีของเส้นด้านล่าง */
+}
+.custom-font a {
+    font-size: 2.75vw;
+    text-decoration: none;
+    color: white;
+}
+/* end section */
+
+.Description {
+    color: white;
+}
+.page-link {
+    color: rgba(221, 161, 94);
+}
+.page-link:hover {
+    color: rgba(96, 108, 56);
+}
+.btn {
+    color: white;
+}
+.btn:hover {
+    color: rgba(188, 108, 37);
+}
+#contactMe {
+    color: white;
+    text-decoration: none;
+}

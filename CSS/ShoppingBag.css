@@ -1,0 +1,99 @@
+body {
+    background-color: rgba(221, 161, 94, 1);
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+/* Top Menu */
+.Logo_img {
+    width: 80px;
+    height: auto;
+    margin: 10px;
+    border-radius: 50%;
+}
+.Shopping {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.ContactMe {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    margin-right: 20px;
+}
+/* Top Menu */
+
+.shopping-cart {
+    background-color: #FFEEDB;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E2A476;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.item img {
+    width: 100px; /* adjust as needed */
+    margin-right: 20px;
+}
+
+.details h3 {
+    margin: 0;
+    color: #333;
+}
+
+.details p {
+    margin: 5px 0;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-selector button {
+    background-color: #E2A476;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.quantity-selector span {
+    padding: 5px 10px;
+}
+
+.total-price {
+    font-weight: bold;
+    color: #333;
+}
+
+.total-amount {
+    text-align: right;
+}
+
+.order-button {
+    background-color: #E2A476;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#contactMe {
+    color: white;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(65, 62, 62);
+}
+

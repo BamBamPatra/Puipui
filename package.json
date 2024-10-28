@@ -1,0 +1,21 @@
+{
+  "name": "se-project-234-2023-pui-pui",
+  "version": "1.0.0",
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/mMAYBnR0)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
+    "express-mysql-session": "^3.0.0",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.9.2",
+    "nodemon": "^3.1.7"
+  }
+}

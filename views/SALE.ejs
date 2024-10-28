@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALE Product</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/CSS/Category.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <!-- navbar -->
+    <%- include ('partials/Nav') %>
+
+     <!-- header -->
+     <header class="container-fluid d-none d-xl-block d-lg-block">
+        <img src="/Pic/Banner_Cardigan.jpg" alt="" style="width: 100%; height: auto;">
+    </header>
+    <!-- end header -->
+
+    <div class="container px-4 pt-5 px-lg-5 mt-4">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-3 pt-5">
+
+            <% products.forEach(product => { %>
+            <div class="col mb-4 p-2">
+                <div class="card h-100 bord p-1">
+                    <!-- Product image-->
+                    <a href="/productPage?product=<%= encodeURIComponent(JSON.stringify(product)) %>">
+                    <img class="card-img-top" src="<%= product.product_image %>" alt="..." />
+                    </a>
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center Description">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder"><%= product.product_Name %></h5>
+                            <!-- Product price-->
+                            <%= product.product_Price %> -
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+
+        </div>
+    </div>
+
+    <!-- footer -->
+    <%- include ('partials/Footer') %>
+
+    <!-- Javascript -->
+    <script src="/Js/Webstore.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home office</title>
+ 
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+ 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/CSS/Homeoffice.css" />
+ 
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet" />
+</head>
+ 
+<body>
+
+    <!-- navbar -->
+    <%- include ('partials/NavBack') %>
+ 
+    <!-- CATEGORY -->
+    <div>
+        <h2 id="Category">Category</h2>
+        <br>
+
+        <!-- ADD Button -->
+        <form id="add-category" action="/addCategory" method="post">
+            <input type="text" id="categoryName" name="categoryName" placeholder="Category Name ..." />
+            <button class="custom-btn ADDButton d-block" id="AddCategory"> ADD </button>
+        </form>
+ 
+        <div id="category-List">
+            <!-- Div Category -->
+        </div>
+ 
+    </div>
+
+    <!-- Model (Delete) -->
+    <div class="modal fade" tabindex="-1" id="exampleModalCollection" aria-labelledby="exampleModalLabelCollection" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabelCollection">Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalBodyContent">
+                    <!-- Modal body content will be dynamically updated -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-subtle" data-bs-dismiss="modal">close</button>
+                    <button type="button" class="btn btn-primary" id="confirmModalButton">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offcanva (Edit) -->
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTopCollection" aria-labelledby="offcanvasTopLabelCollection">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasTopLabelCollection">Edit</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <form action="/editCategory" method="post">
+            <div class="offcanvas-body" id="offcanvasbody">
+                <!-- Offcanva body -->
+            </div>
+
+            <div class="modal-footer modal-footer-collection">
+                <button type="button" class="btn btn-subtle" data-bs-dismiss="offcanvas" aria-label="Close">close</button>
+                <button type="submit" class="btn btn-primary" id="confirmEditCollection">Confirm</button>
+            </div>
+        </form>
+    </div>
+    
+   
+    <script>
+        const categoryList = document.getElementById('category-List');
+        const modalBodyContent = document.getElementById('modalBodyContent');
+        const offcanvasbody = document.getElementById('offcanvasbody');
+        const confirmModalButton = document.getElementById('confirmModalButton');
+        const confirmEditCollection = document.getElementById('confirmEditCollection');
+        let selectedCatID = null; // Variable to store the selected category ID
+   
+        fetch('/category')
+            .then(response => response.json())
+            .then(categories => {
+                const ul = document.createElement('ul');
+   
+                categories.forEach(category => {
+                    const div = document.createElement('div');
+                    const catName = category.category_Name;
+                    const catID = category.category_ID;
+   
+                    div.innerHTML = `
+                        <div class="category">
+                            <h5>${category.category_ID}</h5>
+                            <h5 class="NameCategory" id="NameCategory">${catName}</h5>
+                            <h5>${category.collection_Name}</h5>
+       
+                            <!-- Delete Button -->
+                            <button type="button" class="custom-btn" data-bs-toggle="modal" data-bs-target="#exampleModalCollection" data-category-id="${category.category_ID}">
+                            DELETE
+                            </button>
+       
+                            <!-- Edit Button -->
+                            <button type="button" class="custom-btn EditButton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTopCollection" aria-controls="offcanvasTopCollection" data-edit-category-id="${category.category_ID}">
+                                EDIT
+                            </button>
+
+                        </div>
+                    `;
+   
+                    // Event listener for the delete button
+                    const deleteButton = div.querySelector('[data-category-id]');
+                    deleteButton.addEventListener('click', () => {
+                        selectedCatID = catID; // Update the selected category ID
+                        modalBodyContent.innerHTML = `<p>Do you sure to delete ${catName}?</p>`;
+                    });
+
+                    const editButton = div.querySelector('[data-edit-category-id]');
+                    editButton.addEventListener('click', () => {
+                        selectedCatID = catID; // Update the selected category ID
+                        offcanvasbody.innerHTML = `<input class="p-3 editText" type="text" name="newCatName" id="newCatName" value="${catName}" required>
+                        <input class="p-3 editText" type="hidden" name="catID" id="catID" value="${catID}" required>`;
+                    });
+
+                    ul.appendChild(div);
+                });
+   
+                categoryList.appendChild(ul);
+            })
+            .catch(error => console.error('Error fetching categories:', error));
+   
+        // Event listener for the confirm button in the modal
+        confirmModalButton.addEventListener('click', () => {
+            if (selectedCatID !== null) {
+                console.log('Confirmed. Category ID:', selectedCatID);
+ 
+                // Send the catID to the server
+                fetch('/deleteCategory', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ catID: selectedCatID }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Server response:', data);
+                    // Close the modal
+                    const modal = new bootstrap.Modal(document.getElementById('exampleModalCollection'));
+                    modal.hide();
+                    // Reload the page
+                    location.reload();
+                })
+                .catch(error => console.error('Error sending catID to server:', error));
+ 
+                selectedCatID = null;
+            } else {
+                console.error('No category ID selected.');
+            }
+        }); 
+    </script>
+ 
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+ 
+</html>

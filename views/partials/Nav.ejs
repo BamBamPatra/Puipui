@@ -1,0 +1,55 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand d-none d-lg-block" href="/"><img src="/Pic/PUIPUI.png" alt=""></a>
+        <button class="navbar-toggler custom-toggler navbar-toggler-right" style="box-shadow: none;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="/Pic/PUIPUI.png" alt="">
+        </button>
+
+        <div class="dropdown me-auto">
+            <button class="btn btn-default dropdown-toggle justify-content-start" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profile
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <% if (typeof username !== 'undefined') { %>    
+                    <a href="/" class="dropdown-item">
+                        <span class="navbar-text"><%= username %></span>    
+                    </a>
+                <% } else { %>
+                    <a href="/login" class="dropdown-item">
+                        <span class="navbar-text">Log in</span>    
+                    </a>
+                <% } %>
+              </li>
+              <li><a class="dropdown-item" href="/logout">Log out</a></li>
+            </ul>
+        </div>
+        
+        
+        <form class="d-flex d-block d-lg-none">
+            <button class="btn me-2" type="submit"><a href="mailto:puipui.storeproject@gmail.com" id="contactMe">PUIPUI</a></button>
+            <a class="shopping-bag" href="/ShoppingBag">
+                <img src="/Pic/shopping-bag.png" alt="">
+            </a>
+        </form>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/product/Cardigan">-CARDIGAN-</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/product/Sweater">-SWEATER-</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/product/SaleProduct">-SALE-</a>
+                </li>
+            </ul>
+        </div>
+        <form class="d-flex d-none d-lg-block">
+            <button class="btn me-2" type="submit"><a href="mailto:puipui.storeproject@gmail.com" id="contactMe">PUIPUI</a></button>
+            <a class="shopping-bag" href="/ShoppingBag"><img src="/Pic/shopping-bag.png" alt=""></a>
+        </form>
+    </div>
+</nav>
+<!--  end of navbar -->

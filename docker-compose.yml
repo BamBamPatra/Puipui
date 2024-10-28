@@ -1,0 +1,14 @@
+version: '3.3'
+
+networks:
+  pui:
+    driver: bridge
+
+services:
+  frontend:
+    container_name: puipui-frontend
+    image: bambampatra/puipuistore:latest
+    networks:
+      - pui
+    ports:
+      - "3000:3000"

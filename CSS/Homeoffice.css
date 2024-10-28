@@ -1,0 +1,230 @@
+body, html {
+    font-family: 'Ubuntu', sans-serif;
+    height: 100%;
+    margin: 0;
+    position: relative;
+    background-color: antiquewhite;
+}
+.Logo_img {
+    max-width: 80px;
+    margin: 10px;
+}
+.TopMenu {
+    display: flex;
+}
+.TopMenu a {
+    color: rgba(188, 108, 37);
+    text-decoration: none;
+}
+.TopMenu a:hover {
+    color: rgba(96, 108, 56);
+    text-decoration: none;
+}
+.modal-header h5.modal-title,
+.modal-body {
+    color: black;
+}
+#AddProductInfoButton {
+    background: rgba(96, 108, 56);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 5px;
+    height: 50px;
+    width: 400px;
+}
+#AddProductInfoButton:hover {
+    background-color: white; 
+    border-color: #ffc107; 
+    color: rgba(188, 108, 37); 
+}
+.Add-Product-Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    margin-top: 200px;
+}
+/* Button */
+.custom-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    background: rgba(254, 250, 224);
+}
+.custom-btn:hover {
+    background-color: white; 
+    border-color: #ffc107; 
+    color: rgba(188, 108, 37); 
+}
+/* Button */
+
+/* Block Category */
+.category {
+    padding: 30px;
+    background-color: rgba(221, 161, 94);
+    color: white;
+    display: flex;
+    border: solid white 2px;
+    margin-bottom: 20px;
+    margin: 40px;
+    margin-top: 0;
+}
+/* Block Product */
+.product {
+    padding: 30px;
+    height: 700px;
+    width: 500px;
+    background-color: rgba(221, 161, 94);
+    color: white;
+    border: solid white 2px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin: 20px; 
+}
+.DeleteButton {
+    margin-left: 20px;
+}
+.EditButton {
+    margin-left: 20px;
+}
+.ADDButton {
+    margin-left: 20px;
+}
+.offcanvas {
+    background-color: rgba(221, 161, 94);
+    color: white;
+}
+.offcanvas .modal-footer {
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+.editText {
+    margin-left: 10px;
+    border: white;
+}
+.offcanvas-body {
+    margin-left: 80px;
+}
+.row {
+    align-items: center; 
+    justify-content: center;
+}
+.productBlock {
+   display: flex; 
+   align-items: center; 
+   justify-content: center; 
+   flex-direction: column;
+}
+.buttonProduct {
+    margin-top: 10px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+
+}
+.add-product {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+.categoryName {
+    margin-left: 150px;
+    height: 50px;
+    background-color: white;
+    border: rgba(221, 161, 94) solid 2px;
+    border-radius: 10px;
+}
+.addProductInfo {
+    margin-top: 20px;
+}
+.mb-auto {
+    margin-bottom: auto;
+}
+.topicAddProduct {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: rgba(96, 108, 56);
+    margin-bottom: 20px;
+}
+#categoryName {
+    margin-left: 100px;
+    height: 50px;
+    background-color: white;
+    border: rgba(221, 161, 94) solid 2px;
+    border-radius: 10px;
+}
+.ProductInfo {
+    padding: 20px;
+    padding-bottom: 50px;
+    padding-right: 70px;
+    margin: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    border: rgba(96, 108, 56) solid 2px;
+}
+.material-symbols-outlined {
+    margin-left: 50px; 
+    margin-top: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-left: 40px;
+    color: rgba(96, 108, 56);
+    text-align: center;
+}
+h3 {
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-bottom: 10px;
+}
+h4 {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+h5 {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+form {
+    display: flex;
+    margin-bottom: 20px;
+}
+input #categoryName {
+    margin-left: 100px;
+    height: 50px;
+    background-color: white;
+    border: rgba(221, 161, 94) solid 2px;
+    border-radius: 10px;
+}
+input {
+    height: 50px;
+    width: 400px;
+    background-color: white;
+    border: rgba(221, 161, 94) solid 2px;
+    border-radius: 10px;
+}
+textarea {
+    width: 400px;
+    background-color: white;
+    border: rgba(221, 161, 94) solid 2px;
+    border-radius: 10px;
+}
+img {
+    width: 180px;
+}
+label {
+    display: flex;
+    justify-content: end;
+}
+a {
+    text-decoration: none;
+    color: rgb(65, 62, 62);
+}

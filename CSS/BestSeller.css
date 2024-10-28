@@ -1,0 +1,142 @@
+/* Base styles for the entire body, setting up the font, background color, text color, etc. */
+body {
+    background-color: rgba(221, 161, 94, 1);
+    font-family: 'Ubuntu', sans-serif;
+    color: #333; 
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 15px;
+}
+.Logo_img {
+    max-width: 80px;
+    margin: 10px;
+}
+.TopMenu {
+    display: flex;
+}
+.TopMenu a {
+    color: white;
+    text-decoration: none;
+}
+.TopMenu a:hover {
+    color: rgba(96, 108, 56);
+    text-decoration: none;
+}
+.dropdown-item[href] {
+    color: rgba(188, 108, 37);
+}
+h3 {
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-bottom: 10px;
+}
+
+
+/* Centering the product list and setting its width relative to the viewport */
+.product-list {
+    width: 80%;
+    max-width: 1200px; /* Maximum width of the list to ensure it doesn't get too wide on large screens */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styling the main heading of the page */
+h1 {
+    text-indent: 50px;
+    margin-left: auto;
+    margin-bottom: 20px;
+    color: whitesmoke;
+    padding-top: 20px;
+}
+
+/* General styling for each product container */
+.product {
+    display: flex;
+    align-items: center; /* Aligns items vertically in the center */
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff; /* White background for the product items */
+    border-radius: 8px; /* Rounded corners for the product containers */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* A subtle shadow to lift the containers off the page */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for product containers */
+.product:hover {
+    transform: translateY(-5px); /* Moves the product up slightly when hovered */
+}
+
+/* Styling the rank/number of each product */
+.rank {
+    flex: 0 0 50px; /* Do not grow or shrink, set to a fixed width */
+    font-size: 24px;
+    font-weight: bold;
+    color: #d17b49; /* Matching the title color */
+}
+
+/* Styling the image container */
+.image img {
+    width: 200px; /* Smaller width for the image */
+    height: auto; /* Auto height to maintain aspect ratio */
+    border-radius: 10%; /* Makes the image round */
+    border: 3px solid #d17b49; /* Border to match the title color */
+    margin-right: 15px;
+}
+
+/* Styling the product information area */
+.info {
+    flex: 1; /* Takes the remaining space */
+    padding: 0 20px;
+}
+
+.info p {
+    margin: 5px 0; /* Adds a small margin to each paragraph */
+}
+
+/* Styling the sales and income sections */
+.sales, .income {
+    flex: 0 0 150px; /* Do not grow or shrink, set to a fixed width */
+    text-align: center;
+    font-weight: bold;
+    color: #555; /* Slightly lighter color for these sections */
+}
+
+/* Responsive media query for smaller screens */
+@media (max-width: 768px) {
+    .product-list {
+        width: 95%; /* Takes a bit more space on smaller screens */
+    }
+
+    .product {
+        flex-direction: column; /* Stacks the items on top of each other on smaller screens */
+        align-items: flex-start; /* Aligns items to the start of the container */
+    }
+
+    .rank, .image, .info, .sales, .income {
+        width: 100%; /* Each element takes full width on smaller screens */
+        text-align: left; /* Align text to the left */
+        margin-bottom: 10px; /* Adds margin to the bottom of each section */
+    }
+
+    .image img {
+        margin-right: 0; /* Removes the margin on the right of the image */
+    }
+}
+
+/* Any additional global styles can be added here */
+
+/* logo */
+.Logo_img {
+    width: 80px;
+    height: auto;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.back_button{
+    width: 80px;
+    height: auto;
+    margin: 10px;
+    border-radius: 50%;
+}

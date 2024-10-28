@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bag</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/CSS/ShoppingBag.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <div>
+        <!-- Logo -->
+        <div class="row">
+            <div class="col-6">
+                <a href="/">
+                    <img src="/Pic/PUIPUI.png" class="rounded-circle Logo_img" alt="">
+                </a>
+            </div>
+            <div class="col-6 Shopping">
+                <button class="btn me-2" type="submit"><a href="mailto:puipui.storeproject@gmail.com" id="contactMe">PUIPUI</a></button>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="container" style="margin-left: 0 !important;">
+            <a href="/" class="backButton">
+                <span class="p-4  material-symbols-outlined">arrow_back_ios</span>
+            </a>
+        </div>
+
+        <div class="shopping-cart">
+            <% shoppingBag.forEach((item , index)=> { %>
+            <!-- Cart item -->
+            <div class=" row item">
+                <div class="col-3" style="display: flex; align-items: center; justify-content: center;">
+                    <img src="<%= item.product_image %>" alt="<%= item.product_Name %>">
+                </div>
+
+                <div class="col-6 details">
+
+                    <h3><%= item.product_Name %></h3>
+
+                    <p class="pricePeritem">
+                        <%= item.product_Price %> -
+                    </p>
+
+                    <p>Alphabet: <%= item.alphabet %></p>
+
+                    <div class="quantity-selector">
+                        <!-- Modified decrement button -->
+                        <button type="button" class="decrement" id="indexDecrementBtn<%= index %>">-</button>
+                        <span class="quantity" id="quantity<%= index %>"><%= item.total_quantity %></span>
+                        <!-- Modified increment button -->
+                        <button type="button" class="increment" id="indexIncrementBtn<%= index %>">+</button>
+                    </div>
+                </div>
+
+                <div class="col-3" style="display: flex; align-items: end; justify-content: end; margin-bottom: 0; padding: 0;">
+                    <p class="total-price" id="totalPrice<%= index %>">Total price: <%= item.total_quantity * item.product_Price %></p>
+
+                    <form id="deleteForm<%= item.product_ID%><%= item.alphabet %><%= item.size %>" action="/deleteBagItem" method="post">
+
+                        <!-- Hidden Fields -->
+                        <input type="hidden" name="shoppingBag_ID" value="<%= item.shoppingBag_ID %>">
+                        <input type="hidden" name="product_ID" value="<%= item.product_ID %>">
+                        <input type="hidden" name="alphabet" value="<%= item.alphabet %>">
+                        <input type="hidden" name="size" value="<%= item.size %>">
+
+                        <a href="#" onclick="document.getElementById('deleteForm<%= item.product_ID%><%= item.alphabet %><%= item.size %>').submit(); return false;">
+                            <span class="material-symbols-outlined" style="margin: 15px;">delete</span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+            <% }); %>
+
+            <!-- Total amount -->
+            <div class="total-amount">
+                <p>Total payment amount: <span id="totalPaymentAmount" class="Total-payment-amount"> </span></p>
+                <button class="order-button" id="order-button">Order now</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to update total price and total payment amount
+            function updateTotalPriceAndPaymentAmount() {
+                let totalPaymentAmount = 0;
+                document.querySelectorAll('.item').forEach(function (item, index) {
+                    let quantity = parseInt(document.querySelector('#quantity' + index).textContent);
+                    let price = parseFloat(item.querySelector('.pricePeritem').textContent.trim()); // Fix here
+                    let totalPrice = quantity * price;
+                    item.querySelector('#totalPrice' + index).textContent = 'Total price: ' + totalPrice;
+                    totalPaymentAmount += totalPrice;
+                });
+                document.querySelector('#totalPaymentAmount').textContent = totalPaymentAmount.toFixed(2);
+            }
+
+            // Initial calculation of total payment amount when the page loads
+            updateTotalPriceAndPaymentAmount();
+
+            // Add event listeners to all decrement buttons
+            document.querySelectorAll('.decrement').forEach(function (button, index) {
+                button.addEventListener('click', function () {
+                    // Handle decrement
+                    let quantityElement = document.querySelector('#quantity' + index);
+                    let quantity = parseInt(quantityElement.textContent);
+                    if (quantity > 0) {
+                        quantityElement.textContent = quantity - 1;
+                        // Update total price and total payment amount
+                        updateTotalPriceAndPaymentAmount();
+                    }
+                });
+            });
+
+            // Add event listeners to all increment buttons
+            document.querySelectorAll('.increment').forEach(function (button, index) {
+                button.addEventListener('click', function () {
+                    // Handle increment
+                    let quantityElement = document.querySelector('#quantity' + index);
+                    let quantity = parseInt(quantityElement.textContent);
+                    quantityElement.textContent = quantity + 1;
+                    // Update total price and total payment amount
+                    updateTotalPriceAndPaymentAmount();
+                });
+            });
+
+            // Add event listener to the order button
+            // Add event listener to the order button
+            document.getElementById('order-button').addEventListener('click', function () {
+                // Send a POST request to the backend to handle the order action
+                fetch('/order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        // You can include additional data if needed
+                    })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Handle successful response
+                        alert('Thank you for your order!');
+                        // Refresh the webpage
+                        location.reload();
+                        // Redirect or perform any other action as needed
+                    } else {
+                        // Handle error response
+                        console.error('Error placing order:', response.statusText);
+                        alert('Error placing order. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    // Handle network errors
+                    console.error('Network error:', error);
+                    alert('Network error. Please try again.');
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>

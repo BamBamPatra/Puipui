@@ -1,0 +1,126 @@
+/* Top Menu */
+.Logo_img {
+    width: 80px;
+    height: auto;
+    margin: 10px;
+    border-radius: 50%;
+}
+.Shopping {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.ContactMe {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    margin-right: 20px;
+}
+.shopping-bag {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+#contactMe {
+    color: white;
+    text-decoration: none;
+}
+/* Top Menu */
+
+body {
+    font-family: "Ubuntu", sans-serif;
+}
+
+.ProductPic{
+    width: 80%; 
+    margin: 10px;
+    margin-left: 80px;
+    align-items: center; 
+    border-radius: 20px; 
+}
+
+.inputAlphabet {
+    margin-left: 20px;
+}
+input[type=text] {
+    background-color: rgba(219, 186, 149, 1);
+    color:white;
+    border: white;
+}
+
+.SizeButton {
+    margin-left: 40px;
+}
+.SizeFemale {
+    margin-right: 20px;
+}
+.ButtonToBuy {
+    margin-top: 50px;
+    display: flex;  
+}
+.ButtonToBuy .custom-btn {
+    background: rgba(96, 108, 56);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+.quantity-selector button {
+    background-color: #E2A476;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.quantity-selector span {
+    padding: 5px 10px;
+}
+.BuyNow {
+    margin-right: 10px;
+    width: 60%;
+}
+.AddToBag {
+    width: 60%;
+    margin-right: 10px;
+}
+.custom-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    background: rgba(254, 250, 224);
+}
+.custom-btn:hover {
+    background-color: white; 
+    border-color: #ffc107; 
+    color: rgba(188, 108, 37); 
+}
+.Description {
+    color: white;
+}
+.FlexText {
+    display: flex;
+}
+.material-symbols-outlined {
+    margin-left: 50px; 
+    margin-top: 20px;
+}
+.backButton {
+    text-decoration: none;
+    color: white;
+}
+.checkboxSize {
+    display: flex;
+}
+.form-check {
+    margin-left: 20px;
+}
+span {
+    margin-right: 20px;
+    margin-left: 20px;
+}
